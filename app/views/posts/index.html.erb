@@ -1,0 +1,12 @@
+<%= form_tag(posts_url, method: :post, class: 'create-post') do %>
+    <textarea name="contents"></textarea>
+    <div class="button-container"><button>Post</button></div>
+  <% end %>
+  
+  <% @posts.each do |post| %>
+    <div class="post-container">
+      <%= post.contents %>
+      <%= link_to "#{@user.email}",@user.email %>
+      <%= link_to "Delete Post","/posts?id=#{post.id}", method: :delete %>
+    </div>
+  <% end %>
